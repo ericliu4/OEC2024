@@ -32,7 +32,7 @@ def run_generation(game):
     while curr != count:
         word = random.choice(word_list)
         word = word.lower()
-        if word not in returnWord:
+        if word not in returnWord or len(word) < count+3:
             returnWord += " " + word
             curr += 1
     print(returnWord)
