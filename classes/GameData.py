@@ -17,12 +17,18 @@ class GameData:
             'pt24': pygame.font.Font(None, 24),
             'pt35': pygame.font.Font(None, 35),
             'pt20': pygame.font.Font(None, 20)
-
+        }
+        self.images = {
+            
         }
         
         #global variables
         self.score = 0
-        self.state = 1
+        self.state = 0
+        self.difficulty = 3
+        self.weaknesses = []
+        self.strengths = []
+
 
     def get_state(self):
         return self.state
