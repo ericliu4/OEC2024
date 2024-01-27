@@ -56,12 +56,9 @@ def run_menu(game):
     for event in pygame.event.get():
         
         if event.type == pygame.MOUSEBUTTONDOWN:
-        
-            print(event)
 
             if mouse_state == 1:
                 game.state = 1
-                print(1)
         
         elif event.type == pygame.QUIT:
             
