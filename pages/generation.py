@@ -10,7 +10,9 @@ def run_generation(game):
     with open(file_path, 'r') as file:
         for line in file:
             word_list.append(line.strip())
-    print(word_list)
+
+
+    print(word_list[:100])
 
     difficulty = game.get_difficulty()
 
@@ -30,10 +32,10 @@ def run_generation(game):
     while curr != count:
         word = random.choice(word_list)
         word = word.lower()
-        if word not in returnWord:
+        if word not in returnWord or len(word) < count+3:
             returnWord += " " + word
             curr += 1
-
+    print(returnWord)
     return returnWord
 
 
