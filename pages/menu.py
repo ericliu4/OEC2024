@@ -41,6 +41,12 @@ def run_menu(game):
     button_text_rect = button_text.get_rect(center=(game.width/2, 400 + button_height/2))
     screen.blit(button_text, button_text_rect)
 
+    # setting button
+    screen.fill(button_color, (game.width/2 - button_width/4, 520, button_width/2, button_height/2))
+    button_text = game.fonts['pt20'].render('Setting', True, button_text_color)
+    button_text_rect = button_text.get_rect(center=(game.width/2, 500 + button_height/2))
+    screen.blit(button_text, button_text_rect)
+
     # Display score
     score = game.get_score()
     line = 'Score: ' + str(score)
