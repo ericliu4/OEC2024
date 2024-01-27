@@ -18,7 +18,7 @@ def run_instructions(game):
     ]
 
     timer += 1
-    adjusted_timer = timer // 6
+    adjusted_timer = timer // 4
 
     for i, blurb in enumerate(instruction_text):
         if adjusted_timer > 0:

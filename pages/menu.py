@@ -102,7 +102,7 @@ def run_menu(game):
             if mouse_state == 1:
                 game.state = 1
             if mouse_state == 2:
-                game.state = 2
+                game.state = 3
         
         elif event.type == pygame.QUIT:
             
