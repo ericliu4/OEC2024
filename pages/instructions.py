@@ -23,13 +23,13 @@ def run_instructions(game):
     ]
 
     timer += 1
-    adjusted_timer = timer // 1
+    adjusted_timer = timer // 2
 
     for i, blurb in enumerate(instruction_text):
         if adjusted_timer > 0:
             blurb = blurb[:adjusted_timer]
-            text = game.fonts['pt24'].render(blurb, True, 'white')
-            text_rect = text.get_rect(center=(game.width/2, game.height/2 + i * 30))
+            text = game.fonts['pt35'].render(blurb, True, 'white')
+            text_rect = text.get_rect(center=(game.width/2, 150 + i * 40))
             screen.blit(text, text_rect)
             adjusted_timer -= len(blurb)
 

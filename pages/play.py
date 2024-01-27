@@ -1,5 +1,5 @@
 import pygame
-#from easyocr import Reader
+from easyocr import Reader
 
 from misc.generation import run_generation
 from misc.similarities import similarity_words
@@ -20,7 +20,7 @@ global prev_mouse_state
 prev_mouse_state = 0
 
 global reader
-#reader = Reader(['en'])
+reader = Reader(['en'])
 
 global score_screen
 score_screen = False
@@ -47,7 +47,8 @@ def run_play(game):
 
     if not score_screen:
         # Draw instruction text
-        instruction_text = game.fonts['pt35'].render('WRITE THE WORD BELOW', True, 'white')
+        str_type = ['CHARACTER', 'WORD', 'WORDS', 'WORDS', 'WORDS'][game.difficulty - 1]
+        instruction_text = game.fonts['pt35'].render(f'COPY THE {str_type} BELOW', True, 'white')
         instruction_text_rect = instruction_text.get_rect(center=(game.width/2, 100))
         screen.blit(instruction_text, instruction_text_rect)
 
@@ -122,8 +123,9 @@ def run_play(game):
                 y = int(prev_mouse_pos[1] + (mouse_pos[1] - prev_mouse_pos[1]) * i / INTERPOLATION_STEPS)
                 circles.add((x, y))
             circles.add(mouse_pos)
+    circle_radius = [10, 10, 7, 7, 7][game.difficulty - 1]
     for circle in circles:
-        pygame.draw.circle(screen, '#444444', circle, 10)
+        pygame.draw.circle(screen, '#444444', circle, circle_radius)
 
     # Handle pygame events
     for event in pygame.event.get():

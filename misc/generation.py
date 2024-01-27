@@ -29,7 +29,6 @@ def word_generate(difficulty, topMistake, secondMistake):
         if word not in returnWord and len(word) <= difficulty+2 and (secondMistake == None or topMistake in word or secondMistake in word):
             returnWord += " " + word
             curr += 1
-    print(returnWord)
     
     return returnWord
 
