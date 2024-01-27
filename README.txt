@@ -6,6 +6,7 @@ Comment key aspect of code:
 Instruction to compile
 - Use Python versions 3.10.X
 - Install necessary libraries either manually or through install.bat (pygame, easyocr)
+- A video of use is also included
 
 
 CREDITS
