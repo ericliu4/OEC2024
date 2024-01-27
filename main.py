@@ -23,13 +23,13 @@ while True:
         case 0:
             pages.run_menu(game)
         case 1:
+            pages.run_instructions(game)
+        case 2:
             pages.run_play(game)
-        case 2: 
+        case 3: 
             pages.run_setting(game)
-        case 3:
+        case 4:
             pages.run_words(game)
-        case 15:
-            pages.run_user_input(game)
         case 20:
             pages.run_matching(game)
         case 25:

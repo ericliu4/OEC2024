@@ -1,6 +1,5 @@
 import pygame
 from classes.GameData import GameData 
-import images
 
 global prev_mouse_state
 prev_mouse_state = 0
