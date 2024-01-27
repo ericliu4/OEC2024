@@ -9,12 +9,22 @@ class GameData:
         self.screen = pygame.display.set_mode((800, 600))
         self.clock = pygame.time.Clock()
         self.dt = None
+<<<<<<< HEAD
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
         self.fonts = {
             'title': pygame.font.Font(None, 48),
             'pt24': pygame.font.Font(None, 24)
         }
+=======
+        
+        #globlal variables
+        self.score = 0
+        self.state = 0
+
+    def get_state(self):
+        return self.state
+>>>>>>> e388fb202af9346cb512ac1ff607ace269e669c3
 
     def update(self):
 
@@ -26,3 +36,5 @@ class GameData:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return True
+    
+    
