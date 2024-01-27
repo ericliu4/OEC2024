@@ -21,7 +21,7 @@ class GameData:
         
         #global variables
         self.score = 0
-        self.state = 0
+        self.state = 1
 
     def get_state(self):
         return self.state
