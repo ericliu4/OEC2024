@@ -1,5 +1,6 @@
 from classes.GameData import GameData
 from pages.menu import run_menu
+import pages 
 
 game = GameData()
 while True:
@@ -19,7 +20,7 @@ while True:
     currstate = game.get_state()
     match currstate:
         case 0:
-            run_menu(game)
+            pages.run_menu(game)
         case 1:
             run_play(game)
         case 2: 
