@@ -100,9 +100,9 @@ def run_menu(game):
         if event.type == pygame.MOUSEBUTTONDOWN:
 
             if mouse_state == 1:
-                game.state = 1
+                game.state = 2
             if mouse_state == 2:
-                game.state = 3
+                game.state = 4
         
         elif event.type == pygame.QUIT:
             
