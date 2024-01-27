@@ -44,20 +44,20 @@ def run_menu(game):
     mario_width = 436
     mario_height = 433
     speed_factor = 10
-    x_pos = (mario_width//11)*(width_state//speed_factor)
-    y_pos = (mario_height//11)*(height_state)
+    x_pos = (mario_width//11)*(7+width_state//speed_factor)
+    y_pos = (mario_height//11)*(6+height_state)
     
     mario_animation = pygame.image.load('images/spritesheet1.png')
     cropped_region = (x_pos, y_pos, mario_width//11, mario_height//11)
     cropped_image = mario_animation.subsurface(cropped_region)
     cropped_image = pygame.transform.scale(cropped_image, (100,100))
     screen.blit(cropped_image, (150, 400))
-    if width_state//speed_factor <= 6:
+    if width_state//speed_factor <= 3:
         width_state += 1
     else:
         width_state = 0
         height_state += 1
-        if height_state >= 2:
+        if height_state >= 1:
             height_state = 0
 
     # Draw buttons
