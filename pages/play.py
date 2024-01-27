@@ -1,5 +1,5 @@
 import pygame
-# from easyocr import Reader
+from easyocr import Reader
 
 
 global circles
@@ -15,7 +15,7 @@ global prev_mouse_state
 prev_mouse_state = 0
 
 global reader
-# reader = Reader(['en'])
+reader = Reader(['en'])
 
 def run_play(game):
 
@@ -26,34 +26,56 @@ def run_play(game):
     global prev_mouse_state
 
     screen = game.screen
-    screen.fill('pink')
     mouse_pos = pygame.mouse.get_pos()
     mouse_state = get_mouse_state(mouse_pos)
 
-    # Draw text
-    instruction_text = game.fonts['pt24'].render('Draw the word: ' + game.goal_word, True, 'black')
-    instruction_text_rect = instruction_text.get_rect(center=(game.width/2, 50))
+    # Draw background as hard image
+    screen.blit(game.images['bg_hard'], (0, 0))
+
+
+    # Draw instruction text
+    instruction_text = game.fonts['pt35'].render('WRITE THE WORD BELOW', True, 'white')
+    instruction_text_rect = instruction_text.get_rect(center=(game.width/2, 100))
     screen.blit(instruction_text, instruction_text_rect)
+
+    instruction_text_2 = game.fonts['title'].render(game.goal_word, True, 'white')
+    instruction_text_2_rect = instruction_text_2.get_rect(center=(game.width/2, 150))
+    screen.blit(instruction_text_2, instruction_text_2_rect)
+
+    # Draw difficulty text in top left corner
+    difficulty_text = game.fonts['pt35'].render(f'Difficulty:', True, 'white')
+    difficulty_text_rect = difficulty_text.get_rect(topleft=(15, 15))
+    screen.blit(difficulty_text, difficulty_text_rect)
+
+    # Draw the number of shell images in top left corner equal to difficulty
+    shell_image = game.images['green_shell']
+    shell_image_rect = shell_image.get_rect(topleft=(140, 10))
+    for i in range(game.difficulty):
+        screen.blit(shell_image, shell_image_rect)
+        shell_image_rect.x += 50
 
     # Draw box
     box_width = 600
     box_height = 300
     screen.fill('white', (game.width/2 - box_width/2, 200, box_width, box_height))
 
-    # Draw submit button
-    button_width = 100
-    button_height = 50
-    button_color = '#EECCFF' if mouse_state == 1 else '#FFCCFF'
-    button_text_color = 'black'
-    screen.fill(button_color, (game.width/2 - button_width/2, 550, button_width, button_height))
-    button_text = game.fonts['pt24'].render('Submit', True, button_text_color)
-    button_text_rect = button_text.get_rect(center=(game.width/2, 550 + button_height/2))
-    screen.blit(button_text, button_text_rect)
+    # Draw black border around box
+    border_width = 5
+    pygame.draw.rect(screen, 'black', (game.width/2 - box_width/2 - border_width, 200 - border_width, box_width + border_width * 2, box_height + border_width * 2), border_width)
+
+    # Draw submit and clear button side by side using images
+    submit_button_image = game.images['button_submit']
+    submit_button_image_rect = submit_button_image.get_rect(center=(game.width/2 + 130, 550))
+    screen.blit(submit_button_image, submit_button_image_rect)
+    clear_button_image = game.images['button_clear']
+    clear_button_image_rect = clear_button_image.get_rect(center=(game.width/2 - 130, 550))
+    screen.blit(clear_button_image, clear_button_image_rect)
+
 
     # Handle mouse cursor
-    if prev_mouse_state == 0 and mouse_state == 1:
+    if prev_mouse_state == 0 and mouse_state:
         pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-    elif prev_mouse_state == 1 and mouse_state == 0:
+    elif prev_mouse_state and mouse_state == 0:
         pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
     # Draw circles
@@ -78,11 +100,15 @@ def run_play(game):
         if event.type == pygame.MOUSEBUTTONDOWN:
             is_pressed = True
 
-            # Check if mouse is within submit button
+            # Clear button
             if mouse_state == 1:
-                # Get grayscale pixel array from white drawing box
+                circles = set()
+            
+            # Submit button
+            elif mouse_state == 2:
                 detected_words = get_words_in_box(game)
-                print(detected_words)
+                _, detected_word, confidence = detected_words[0]
+                print(_, detected_word, confidence)
             
         # Mouse release
         elif event.type == pygame.MOUSEBUTTONUP:
@@ -98,8 +124,13 @@ def run_play(game):
 
 def get_mouse_state(pos):
     
-    if pos[0] > 350 and pos[0] < 450 and pos[1] > 550 and pos[1] < 600:
+    # Check if mouse is within clear button image
+    if pos[0] > 150 and pos[0] < 390 and pos[1] > 527.5 and pos[1] < 572.5:
         return 1
+    
+    # Check if mouse is within submit button image
+    elif pos[0] > 410 and pos[0] < 650 and pos[1] > 527.5 and pos[1] < 572.5:
+        return 2
     
     else:
         return 0

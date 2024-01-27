@@ -45,9 +45,9 @@ def letter_generate():
 
 
 def run_generation(game):
-    difficulty = game.get_difficulty()
+    difficulty = game.difficulty
     if difficulty == 1:
-        return letter_generate(difficulty)
+        return letter_generate()
     return word_generate()
 
 
