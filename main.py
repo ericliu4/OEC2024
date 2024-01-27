@@ -11,7 +11,7 @@ while True:
     1 = play  -> 3
     2 = setting  -> 0
     3 = words
-    10 = word generation
+    word generation -- called after type of game is selected
     15 = user input
     20 = matching algorithm
     25 = calculation
@@ -28,8 +28,6 @@ while True:
             pages.run_setting(game)
         case 3:
             pages.run_words(game)
-        case 10:
-            pages.run_generation(game)
         case 15:
             pages.run_user_input(game)
         case 20:
