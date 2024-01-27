@@ -17,6 +17,7 @@ while True:
     25 = calculation
     30 = exit game
     '''
+
     currstate = game.get_state()
     match currstate:
         case 0:
@@ -24,19 +25,19 @@ while True:
         case 1:
             pages.run_play(game)
         case 2: 
-            run_setting(game)
+            pages.run_setting(game)
         case 3:
-            run_words(game)
+            pages.run_words(game)
         case 10:
-            run_generation(game)
+            pages.run_generation(game)
         case 15:
-            run_user_input(game)
+            pages.run_user_input(game)
         case 20:
-            run_matching(game)
+            pages.run_matching(game)
         case 25:
-            run_calculation(game)
+            pages.run_calculation(game)
         case 30:
-            run_exit(game)
+            pages.run_exit(game)
 
     game.update()
 
