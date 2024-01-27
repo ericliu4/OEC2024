@@ -25,6 +25,9 @@ class GameData:
 
     def get_state(self):
         return self.state
+    
+    def get_score(self):
+        return self.score
 
 
     def update(self):

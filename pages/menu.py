@@ -1,4 +1,5 @@
 import pygame
+from classes.GameData import GameData 
 
 global prev_mouse_state
 prev_mouse_state = 0
@@ -40,7 +41,9 @@ def run_menu(game):
     screen.blit(button_text, button_text_rect)
 
     # Display score
-    score_text = game.fonts['title'].render('Score: 100', True, 'black')
+    score = game.get_score()
+    line = 'Score: ' + str(score)
+    score_text = game.fonts['title'].render(line, True, 'black')
     score_text_rect = score_text.get_rect(center=(game.width*4/5, 540))
     screen.blit(score_text, score_text_rect)
 
