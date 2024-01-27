@@ -22,13 +22,17 @@ class GameData:
         
         #global variables
         self.score = 0
-        self.state = 0
+        self.state = 0 #change this for testing
+        self.difficulty = 1 #1, 2, 3 as options   
 
     def get_state(self):
         return self.state
     
     def get_score(self):
         return self.score
+
+    def get_difficulty(self):
+        return self.difficulty
 
     def draw_fps(self):
         fps = self.clock.get_fps()
