@@ -1,7 +1,23 @@
 Team members: Eric Liu, Nathan Chin, Casey Takahashi, Josh Zhang
 Team name: Kenya
 Project title: Super Mario Word Challenge - A Visual & Kinesthetic Experience for Students with Dysgraphia
-Location of code with directories: 
+
+Location of code with directories:
+main.py
+/classes/GameData.py
+/images
+/misc/generation.py
+/misc/rewardCalculation.py
+/misc/similarities.py
+/misc/updateMistakes.py
+/pages/__init__.py
+/pages/instructions.py
+/pages/menu.py
+/pages/play.py
+/pages/setting.py
+/wordBank/letters.txt
+/wordBank/wordBank.txt
+
 Comment key aspect of code: 
 Instruction to compile
 - Use Python versions 3.10.X
