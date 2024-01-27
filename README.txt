@@ -18,3 +18,6 @@ https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance
 
 Credit to JaidedAI's easyocr Python library for the character recognition model
 https://github.com/JaidedAI/EasyOCR
+
+Credit to Google Images for providing access to free-to-use image files
+https://images.google.com

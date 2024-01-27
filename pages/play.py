@@ -146,6 +146,8 @@ def run_play(game):
                         _, detected_word, confidence = detected_words[0]
                         detected_word = detected_word.lower()
                         detected_word = detected_word.replace('1', 'l')
+                        detected_word = ''.join(detected_word.split(' '))
+                        game.goal_word = ''.join(game.goal_word.split(' '))
                         game.prev_score = similarity_words(detected_word, game.goal_word)
                         game.score += game.prev_score
                     else:
