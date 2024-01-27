@@ -27,15 +27,18 @@ class GameData:
             'button_back': pygame.image.load('images/button_back.png'),
             'button_harder': pygame.image.load('images/button_harder.png'),
             'button_easier': pygame.image.load('images/button_easier.png'),
+            'button_submit': pygame.image.load('images/button_submit.png'),
+            'button_clear': pygame.image.load('images/button_clear.png'),
+            'green_shell': pygame.image.load('images/green_shell.png')
         }
         
         #global variables
         self.score = 0
-        self.state = 0
-        self.difficulty = 1
+        self.state = 2
+        self.difficulty = 3
         self.weaknesses = []
         self.strengths = []
-        self.goal_word = None
+        self.goal_word = 'whale'
 
 
     def get_state(self):
