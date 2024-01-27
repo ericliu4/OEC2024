@@ -1,5 +1,6 @@
 import pygame
 from classes.GameData import GameData 
+import images
 
 global prev_mouse_state
 prev_mouse_state = 0
@@ -46,6 +47,11 @@ def run_menu(game):
     score_text = game.fonts['title'].render(line, True, 'black')
     score_text_rect = score_text.get_rect(center=(game.width*4/5, 540))
     screen.blit(score_text, score_text_rect)
+
+    #display image
+    image = pygame.image.load('images/handwriting_image.jpg')
+    scaled_image = pygame.transform.scale(image, (250, 250))
+    screen.blit(scaled_image, (game.width/2 - scaled_image.get_width()/2, 100))
 
     for event in pygame.event.get():
         
