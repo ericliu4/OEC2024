@@ -2,7 +2,6 @@ from classes.GameData import GameData
 from pages.menu import run_menu
 
 game = GameData()
-currState = 0
 while True:
 
     '''
@@ -17,7 +16,8 @@ while True:
     25 = calculation
     30 = exit game
     '''
-    match currState:
+    currstate = game.get_state()
+    match currstate:
         case 0:
             run_menu(game)
         case 1:

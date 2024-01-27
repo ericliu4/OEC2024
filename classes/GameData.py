@@ -7,6 +7,12 @@ class GameData:
         self.clock = pygame.time.Clock()
         self.dt = None
         
+        #globlal variables
+        self.score = 0
+        self.state = 0
+
+    def get_state(self):
+        return self.state
 
     def update(self):
 
@@ -18,3 +24,5 @@ class GameData:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return True
+    
+    
