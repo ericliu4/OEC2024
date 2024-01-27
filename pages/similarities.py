@@ -31,6 +31,5 @@ def damerau_levenshtein(s1, s2):
     # normalization of accuracy score
     return round(max(0,(1-(d[-1][-1])/len(s2))*100)) 
 
-print (damerau_levenshtein("98427985798743", "hi"))
 
 
