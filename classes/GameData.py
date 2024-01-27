@@ -25,6 +25,9 @@ class GameData:
 
     def get_state(self):
         return self.state
+    
+    def get_score(self):
+        return self.score
 
     def draw_fps(self):
         fps = self.clock.get_fps()
