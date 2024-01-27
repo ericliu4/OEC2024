@@ -1,15 +1,7 @@
 from scipy.spatial import KDTree
 import numpy as np
 
-
-def distance_sum(input_pts, preset_pts):
-    kdtree = KDTree(input_pts) # dont need leaf size since data sample will usually always be bigger
-    d, i = kdtree.query(preset_pts)
-    # print("closest point:", d, v[i]) # prints distance + point
-    return sum(d)
-
-
-def damerau_levenshtein(s1, s2):
+def similarity_words(s1, s2):
     # let s1 be written string and s2 be given string
     d = [[0] * (len(s1)+1) for i in range(len(s2)+1)] # s1 horizontal, s2 vertical
     maxdist = len(s1)+len(s2)
