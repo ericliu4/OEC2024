@@ -57,6 +57,8 @@ class GameData:
 
     def get_difficulty(self):
         return self.difficulty
+    def set_score(self, newScore):
+        self.score = newScore
 
     def draw_fps(self):
         fps = self.clock.get_fps()
