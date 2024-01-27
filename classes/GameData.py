@@ -14,7 +14,9 @@ class GameData:
         self.height = self.screen.get_height()
         self.fonts = {
             'title': pygame.font.Font(None, 48),
-            'pt24': pygame.font.Font(None, 24)
+            'pt24': pygame.font.Font(None, 24),
+            'pt35': pygame.font.Font(None, 35)
+
         }
         
         #global variables
