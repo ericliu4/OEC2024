@@ -28,8 +28,6 @@ while True:
             pages.run_setting(game)
         case 3:
             pages.run_words(game)
-        case 15:
-            pages.run_user_input(game)
         case 20:
             pages.run_matching(game)
         case 25:
