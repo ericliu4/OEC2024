@@ -17,7 +17,7 @@ class GameData:
             'pt24': pygame.font.Font(None, 24)
         }
         
-        #glolal variables
+        #global variables
         self.score = 0
         self.state = 0
 
@@ -30,10 +30,4 @@ class GameData:
         pygame.display.flip()
 
         self.dt = self.clock.tick(60) / 1000
-
-        # Check for quit
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return True
-    
     

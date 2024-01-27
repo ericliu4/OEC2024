@@ -1,2 +1,4 @@
 def run_play(game):
-    continue
+
+    screen = game.screen
+    screen.fill('pink')

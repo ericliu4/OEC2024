@@ -1,4 +1,4 @@
 from .menu import run_menu
-from .menu import run_play
+from .play import run_play
 
 
