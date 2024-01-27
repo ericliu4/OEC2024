@@ -67,8 +67,7 @@ class GameData:
         self.screen.blit(fps_text, fps_text_rect)
 
     def update(self):
-
-        self.draw_fps()
+        #self.draw_fps()
         pygame.display.flip()
         self.dt = self.clock.tick(60) / 1000
     
