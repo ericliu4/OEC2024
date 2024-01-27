@@ -7,3 +7,4 @@ from .matching import run_matching
 from .calculation import run_calculation
 
 
+from .instructions import run_instructions
