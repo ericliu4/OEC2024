@@ -133,6 +133,9 @@ def run_menu(game):
 
             if mouse_state == 2:
                 game.state = 3
+            
+            if mouse_state == 3:
+                game.set_score(0)
         
         elif event.type == pygame.QUIT:
             
@@ -151,5 +154,8 @@ def get_mouse_state(pos):
     #Check if mouse is within "Setting" button
     if pos[0] > game_width/2-button_width/2 and pos[0] < game_width/2+button_width/2 and pos[1] < 350+button_height and pos[1] > 350:
         return 2
+    # Check if mouse i within "Score" button
+    if pos[0] > game_width*4/5-100 and pos[0] < game_width*4/5+100 and pos[1] < 540+50 and pos[1] > 540:
+        return 3
     else:
         return 0
