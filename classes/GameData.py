@@ -36,6 +36,9 @@ class GameData:
     def get_score(self):
         return self.score
 
+    def get_difficulty(self):
+        return self.difficulty
+
     def draw_fps(self):
         fps = self.clock.get_fps()
         fps_text = self.fonts['pt24'].render(f'FPS: {fps:.2f}', True, 'black')
