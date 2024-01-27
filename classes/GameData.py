@@ -25,7 +25,7 @@ class GameData:
         #global variables
         self.score = 0
         self.state = 0
-        self.difficulty = 3
+        self.difficulty = 1
         self.weaknesses = []
         self.strengths = []
 
