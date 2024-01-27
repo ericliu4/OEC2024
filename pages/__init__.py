@@ -1,13 +1,11 @@
 from .menu import run_menu
 from .play import run_play
-from .menu import run_setting
-from .menu import run_words
-from .menu import run_generation
-from .menu import run_setting
-from .menu import run_generation
-from .menu import run_exit
-from .menu import run_matching
-from .menu import run_calculation
-from .menu import run_user_input
+from .setting import run_setting
+from .words import run_words
+from .generation import run_generation
+from .exit import run_exit
+from .matching import run_matching
+from .calculation import run_calculation
+from .user_input import run_user_input
 
 
