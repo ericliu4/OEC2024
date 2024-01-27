@@ -17,6 +17,19 @@ def run_setting(game):
     screen = game.screen
     screen.blit(game.images['bg_settings'], (0, 0))
     screen.blit(game.images['text_settings'], (game.width/2 - game.images['text_settings'].get_width()/2, 100))
+
+    # Draw difficulty text in top left corner
+    difficulty_text = game.fonts['pt35'].render(f'Difficulty:', True, 'white')
+    difficulty_text_rect = difficulty_text.get_rect(topleft=(15, 15))
+    screen.blit(difficulty_text, difficulty_text_rect)
+
+    # Draw the number of shell images in top left corner equal to difficulty
+    shell_image = game.images['green_shell']
+    shell_image_rect = shell_image.get_rect(topleft=(140, 10))
+    for i in range(game.difficulty):
+        screen.blit(shell_image, shell_image_rect)
+        shell_image_rect.x += 50
+
     # Draw back, easier, harder buttons from images dictionary in vertical order
     max_factor = 1.1
     if mouse_state == 1:
@@ -65,7 +78,7 @@ def run_setting(game):
             elif mouse_state == 2:
                 game.difficulty = max(1, game.difficulty - 1)
             elif mouse_state == 3:
-                game.difficulty = min(3, game.difficulty + 1)
+                game.difficulty = min(5, game.difficulty + 1)
 
         # Mouse release
         elif event.type == pygame.MOUSEBUTTONUP:
