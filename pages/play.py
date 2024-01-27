@@ -142,8 +142,8 @@ def run_play(game):
                     detected_words = get_words_in_box(game)
                     if len(detected_words) > 0:
                         _, detected_word, confidence = detected_words[0]
-                        # detected_word = 'whalef'
-                        # confidence = 0.63
+                        detected_word = detected_word.lower()
+                        detected_word = detected_word.replace('1', 'l')
                         game.prev_score = similarity_words(detected_word, game.goal_word)
                         game.score += game.prev_score
                     else:
@@ -159,7 +159,7 @@ def run_play(game):
                         if game.streak == -2:
                             game.difficulty = max(1, game.difficulty - 1)
                             game.streak = 0
-
+                    
                     update_mistakes(game, game.goal_word, detected_word)
                     score_screen = True
 
