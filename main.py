@@ -26,7 +26,7 @@ while True:
             pages.run_instructions(game)
         case 2:
             pages.run_play(game)
-        case 3: 
+        case 3:
             pages.run_setting(game)
         case 4:
             pages.run_words(game)

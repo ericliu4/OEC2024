@@ -3,6 +3,7 @@ import pygame
 
 from misc.generation import run_generation
 from misc.similarities import similarity_words
+from misc.updateMistakes import update_mistakes
 
 import matplotlib.pyplot as plt
 
@@ -111,7 +112,7 @@ def run_play(game):
 
     # Draw circles
     # Check mouse pressed & current mouse pos
-    if is_pressed and (mouse_pos[0] > game.width/2 - box_width/2 and mouse_pos[0] < game.width/2 + box_width/2 and mouse_pos[1] > 200 and mouse_pos[1] < 200 + box_height):
+    if not score_screen and is_pressed and (mouse_pos[0] > game.width/2 - box_width/2 and mouse_pos[0] < game.width/2 + box_width/2 and mouse_pos[1] > 200 and mouse_pos[1] < 200 + box_height):
         # Check prev mouse pos
         if prev_mouse_pos[0] > game.width/2 - box_width/2 and prev_mouse_pos[0] < game.width/2 + box_width/2 and prev_mouse_pos[1] > 200 and prev_mouse_pos[1] < 200 + box_height:
             # Interpolate for finer resolution
@@ -148,6 +149,18 @@ def run_play(game):
                     else:
                         detected_word = ''
                         game.prev_score = 0
+                    if game.prev_score > 50:
+                        game.streak += 1
+                        if game.streak == 2:
+                            game.difficulty = min(5, game.difficulty + 1)
+                            game.streak = 0
+                    else:
+                        game.streak -= 1
+                        if game.streak == -2:
+                            game.difficulty = max(1, game.difficulty - 1)
+                            game.streak = 0
+
+                    update_mistakes(game, game.goal_word, detected_word)
                     score_screen = True
 
             else:

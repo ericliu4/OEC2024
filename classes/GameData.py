@@ -36,11 +36,12 @@ class GameData:
         #global variables
         #difficulty level up to 5
         self.score = 0
-        self.state = 2
-        self.difficulty = 1
+        self.state = 0
+        self.difficulty = 3
         self.weaknesses = []
         self.strengths = []
         self.goal_word = 'whale'
+        self.streak = 0
 
 
         #Track types of mistakes the user is more likely to make

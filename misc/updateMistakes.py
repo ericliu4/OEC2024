@@ -1,6 +1,6 @@
 from collections import Counter
 
-def updateMistakes(game, generatedString, newString):
+def update_mistakes(game, generatedString, newString):
     generatedStringCounter = Counter(generatedString)
     newStringCounter = Counter(newString)
     

@@ -14,15 +14,16 @@ def run_instructions(game):
 
     instruction_text = [
         'Here are your rules...',
-        'The goal is to type the word that appears on the screen',
-        'You can press clear to clear your input',
+        'Draw the word that appears on the screen',
+        'You will get a score up to 100',
+        'The difficulty and word selection will adapt to your skill',
         'keep it to one line',
         'Good luck!!',
         '(hit space to continue)'  
     ]
 
     timer += 1
-    adjusted_timer = timer // 4
+    adjusted_timer = timer // 1
 
     for i, blurb in enumerate(instruction_text):
         if adjusted_timer > 0:
