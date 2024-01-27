@@ -3,8 +3,12 @@ import pygame
 global prev_mouse_state
 prev_mouse_state = 0
 
+global button_size_factor
+button_size_factor = 1
+
 def run_setting(game):
     global prev_mouse_state
+    global button_size_factor
 
     pos = pygame.mouse.get_pos()
     mouse_state = get_mouse_state(pos)
@@ -12,11 +16,38 @@ def run_setting(game):
     # Draw to screen
     screen = game.screen
     screen.blit(game.images['bg_settings'], (0, 0))
-    screen.blit(game.images['text_settings'], (game.width/2 - game.images['text_settings'].get_width()/2, 50))
+    screen.blit(game.images['text_settings'], (game.width/2 - game.images['text_settings'].get_width()/2, 100))
     # Draw back, easier, harder buttons from images dictionary in vertical order
-    screen.blit(game.images['button_back'], (game.width/2 - game.images['button_back'].get_width()/2, 250))
-    screen.blit(game.images['button_easier'], (game.width/2 - game.images['button_easier'].get_width()/2, 325))
-    screen.blit(game.images['button_harder'], (game.width/2 - game.images['button_harder'].get_width()/2, 400))
+    max_factor = 1.1
+    if mouse_state == 1:
+        button_back = game.images['button_back']
+        button_back = pygame.transform.scale(button_back, (int(button_back.get_width()*button_size_factor), int(button_back.get_height()*button_size_factor)))
+        screen.blit(button_back, (game.width/2 - button_size_factor*game.images['button_back'].get_width()/2, 250))
+        button_size_factor = min(max_factor, button_size_factor + 0.01)
+    else:
+        button_back = game.images['button_back']
+        screen.blit(button_back, (game.width/2 - game.images['button_back'].get_width()/2, 250))
+        
+    if mouse_state == 2:
+        button_easier = game.images['button_easier']
+        button_easier = pygame.transform.scale(button_easier, (int(button_easier.get_width()*button_size_factor), int(button_easier.get_height()*button_size_factor)))
+        screen.blit(button_easier, (game.width/2 - button_size_factor*game.images['button_easier'].get_width()/2, 325))
+        button_size_factor = min(max_factor, button_size_factor + 0.01)
+    else:
+        button_easier = game.images['button_easier']
+        screen.blit(button_easier, (game.width/2 - game.images['button_easier'].get_width()/2, 325))
+    
+    if mouse_state == 3:
+        button_harder = game.images['button_harder']
+        button_harder = pygame.transform.scale(button_harder, (int(button_harder.get_width()*button_size_factor), int(button_harder.get_height()*button_size_factor)))
+        screen.blit(button_harder, (game.width/2 - button_size_factor*game.images['button_harder'].get_width()/2, 400))
+        button_size_factor = min(max_factor, button_size_factor + 0.01)
+    else:
+        button_harder = game.images['button_harder']
+        screen.blit(button_harder, (game.width/2 - game.images['button_harder'].get_width()/2, 400))
+    
+    if mouse_state == 0:
+        button_size_factor = 1
 
      # Handle mouse cursor
     if prev_mouse_state == 0 and mouse_state:

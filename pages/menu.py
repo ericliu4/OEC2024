@@ -77,14 +77,14 @@ def run_menu(game):
     if mouse_state == 1:
         play_button_image = pygame.image.load('images/-PLAY.png')
         play_button_image = pygame.transform.scale(play_button_image, (button_width*button_size_factor, button_height*button_size_factor))
-        screen.blit(play_button_image, (game.width/2 - button_width*button_size_factor/2, 200))
+        screen.blit(play_button_image, (game.width/2 - button_width*button_size_factor/2, 275))
         if button_size_factor < max_factor:
             button_size_factor += 0.01
         else:
             button_size_factor = max_factor
     else:
         play_button_image = pygame.image.load('images/-PLAY.png')
-        screen.blit(play_button_image, (game.width/2 - button_width/2, 200))
+        screen.blit(play_button_image, (game.width/2 - button_width/2, 275))
         
     #screen.fill(play_button_color, (game.width/2 - button_width/2, 200, button_width, button_height))
     #button_text = game.fonts['pt35'].render('Play', True, button_text_color)
@@ -95,14 +95,14 @@ def run_menu(game):
     if mouse_state == 2:
         settings_button_image = pygame.image.load('images/-SETTINGS.png')
         settings_button_image = pygame.transform.scale(settings_button_image, (button_width*button_size_factor, button_height*button_size_factor))
-        screen.blit(settings_button_image, (game.width/2 - button_width*button_size_factor/2, 300))
+        screen.blit(settings_button_image, (game.width/2 - button_width*button_size_factor/2, 350))
         if button_size_factor < max_factor:
             button_size_factor += 0.01
         else:
             button_size_factor = max_factor
     else:
         settings_button_image = pygame.image.load('images/-SETTINGS.png')
-        screen.blit(settings_button_image, (game.width/2 - button_width/2, 300))
+        screen.blit(settings_button_image, (game.width/2 - button_width/2, 350))
     
     if mouse_state == 0:
         button_size_factor = 1
@@ -146,10 +146,10 @@ def get_mouse_state(pos):
     global button_width, button_height
     global game_width, game_height
     # Check if mouse is within "Play" button
-    if pos[0] > game_width/2-button_width/2 and pos[0] < game_width/2+button_width/2 and pos[1] < 200+button_height and pos[1] > 200:
+    if pos[0] > game_width/2-button_width/2 and pos[0] < game_width/2+button_width/2 and pos[1] < 275+button_height and pos[1] > 275:
         return 1
     #Check if mouse is within "Setting" button
-    if pos[0] > game_width/2-button_width/2 and pos[0] < game_width/2+button_width/2 and pos[1] < 300+button_height and pos[1] > 300:
+    if pos[0] > game_width/2-button_width/2 and pos[0] < game_width/2+button_width/2 and pos[1] < 350+button_height and pos[1] > 350:
         return 2
     else:
         return 0
