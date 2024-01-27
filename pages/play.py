@@ -1,5 +1,5 @@
 import pygame
-from easyocr import Reader
+# from easyocr import Reader
 
 
 global circles
@@ -15,7 +15,7 @@ global prev_mouse_state
 prev_mouse_state = 0
 
 global reader
-reader = Reader(['en'])
+# reader = Reader(['en'])
 
 def run_play(game):
 

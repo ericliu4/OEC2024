@@ -14,6 +14,10 @@ def run_instructions(game):
 
     instruction_text = [
         'Here are your rules...',
+        'The goal is to type the word that appears on the screen',
+        'You can press clear to clear your input',
+        'keep it to one line',
+        'Good luck!!',
         '(hit space to continue)'  
     ]
 

@@ -129,6 +129,8 @@ def run_menu(game):
 
             if mouse_state == 1:
                 game.state = 1
+                pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+
             if mouse_state == 2:
                 game.state = 3
         
