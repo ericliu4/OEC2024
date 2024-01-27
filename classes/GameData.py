@@ -19,12 +19,13 @@ class GameData:
             'pt20': pygame.font.Font(None, 20)
         }
         self.images = {
-            
+            'bg_settings': pygame.image.load('images/bg_settings.jpg'),
+            'text_settings': pygame.image.load('images/text_settings.png'),
         }
         
         #global variables
         self.score = 0
-        self.state = 0
+        self.state = 2
         self.difficulty = 3
         self.weaknesses = []
         self.strengths = []
