@@ -61,7 +61,7 @@ def run_menu(game):
 
 def get_mouse_state(pos):
     
-    if pos[0] > 300 and pos[0] < 500 and pos[1] > 150 and pos[1] < 200: # Play
+    if pos[0] > 250 and pos[0] < 550 and pos[1] > 400 and pos[1] < 480:
         return 1
     
     else:
