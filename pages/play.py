@@ -31,7 +31,7 @@ def run_play(game):
     mouse_state = get_mouse_state(mouse_pos)
 
     # Draw text
-    instruction_text = game.fonts['pt24'].render('Draw the word: whale', True, 'black')
+    instruction_text = game.fonts['pt24'].render('Draw the word: ' + game.goal_word, True, 'black')
     instruction_text_rect = instruction_text.get_rect(center=(game.width/2, 50))
     screen.blit(instruction_text, instruction_text_rect)
 

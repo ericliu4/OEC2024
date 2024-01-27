@@ -21,6 +21,7 @@ class GameData:
         self.images = {
             'bg_settings': pygame.image.load('images/bg_settings.jpg'),
             'text_settings': pygame.image.load('images/text_settings.png'),
+            'button_menu': pygame.image.load('images/button_menu.png'),
         }
         
         #global variables
@@ -29,6 +30,7 @@ class GameData:
         self.difficulty = 3
         self.weaknesses = []
         self.strengths = []
+        self.goal_word = None
 
 
     def get_state(self):

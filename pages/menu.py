@@ -1,6 +1,6 @@
 import pygame
 from classes.GameData import GameData 
-import images
+from misc.generation import run_generation
 
 global prev_mouse_state
 prev_mouse_state = 0
@@ -65,6 +65,7 @@ def run_menu(game):
 
             if mouse_state == 1:
                 game.state = 1
+                game.goal_word = run_generation(game)
         
         elif event.type == pygame.QUIT:
             
