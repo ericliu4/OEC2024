@@ -1,5 +1,5 @@
 import pygame
-
+from collections import Counter
 class GameData:
 
     def __init__(self):
@@ -29,16 +29,23 @@ class GameData:
             'button_easier': pygame.image.load('images/button_easier.png'),
             'button_submit': pygame.image.load('images/button_submit.png'),
             'button_clear': pygame.image.load('images/button_clear.png'),
+            'button_next': pygame.image.load('images/button_next.png'),
             'green_shell': pygame.image.load('images/green_shell.png')
         }
         
         #global variables
+        #difficulty level up to 5
         self.score = 0
-        self.state = 0
-        self.difficulty = 3
+        self.state = 2
+        self.difficulty = 1
         self.weaknesses = []
         self.strengths = []
         self.goal_word = 'whale'
+
+
+        #Track types of mistakes the user is more likely to make
+        #Adjust word and difficulty depending on mistakes
+        self.mistakes = Counter()
 
 
     def get_state(self):
@@ -54,7 +61,7 @@ class GameData:
         fps = self.clock.get_fps()
         fps_text = self.fonts['pt24'].render(f'FPS: {fps:.2f}', True, 'black')
         fps_text_rect = fps_text.get_rect(topright=(self.width - 10, 10))
-        self.screen.blit(fps_text, fps_text_rect)   
+        self.screen.blit(fps_text, fps_text_rect)
 
     def update(self):
 
