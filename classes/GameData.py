@@ -15,19 +15,29 @@ class GameData:
         self.fonts = {
             'title': pygame.font.Font(None, 48),
             'pt24': pygame.font.Font(None, 24),
-            'pt35': pygame.font.Font(None, 35)
-
+            'pt35': pygame.font.Font(None, 35),
+            'pt20': pygame.font.Font(None, 20)
+        }
+        self.images = {
+            
         }
         
         #global variables
         self.score = 0
         self.state = 0
+        self.difficulty = 1
+        self.weaknesses = []
+        self.strengths = []
+
 
     def get_state(self):
         return self.state
     
     def get_score(self):
         return self.score
+
+    def get_difficulty(self):
+        return self.difficulty
 
     def draw_fps(self):
         fps = self.clock.get_fps()
