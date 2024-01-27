@@ -22,7 +22,7 @@ while True:
         case 0:
             pages.run_menu(game)
         case 1:
-            run_play(game)
+            pages.run_play(game)
         case 2: 
             run_setting(game)
         case 3:

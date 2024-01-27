@@ -1,7 +1,12 @@
 import pygame
 
+global prev_mouse_state
+prev_mouse_state = 0
+
 def run_menu(game):
     
+    global prev_mouse_state
+
     # Rename variables for convenience
     screen = game.screen
     pos = pygame.mouse.get_pos()
@@ -22,19 +27,36 @@ def run_menu(game):
     button_color = '#EECCFF' if mouse_state == 1 else '#FFCCFF'
     button_text_color = 'black'
 
+    # Handle mouse cursor
+    if prev_mouse_state == 0 and mouse_state == 1:
+        pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+    elif prev_mouse_state == 1 and mouse_state == 0:
+        pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+
     # Play button
     screen.fill(button_color, (game.width/2 - button_width/2, 150, button_width, button_height))
     button_text = game.fonts['pt24'].render('Play', True, button_text_color)
     button_text_rect = button_text.get_rect(center=(game.width/2, 150 + button_height/2))
-    screen.blit(button_text, button_text_rect) 
-
+    screen.blit(button_text, button_text_rect)
 
 
     for event in pygame.event.get():
-
+        
         if event.type == pygame.MOUSEBUTTONDOWN:
+        
+            print(event)
 
-            pass
+            if mouse_state == 1:
+                game.state = 1
+                print(1)
+        
+        elif event.type == pygame.QUIT:
+            
+            return True
+    
+    # Update prev mouse state
+    prev_mouse_state = mouse_state
+
 
 def get_mouse_state(pos):
     

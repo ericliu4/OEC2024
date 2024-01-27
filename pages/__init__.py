@@ -1,5 +1,5 @@
 from .menu import run_menu
-from .menu import run_play
+from .play import run_play
 from .menu import run_setting
 from .menu import run_words
 from .menu import run_generation
