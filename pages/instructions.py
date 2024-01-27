@@ -16,7 +16,7 @@ def run_instructions(game):
         'Here are your rules...',
         'The goal is to type the word that appears on the screen',
         'You can press clear to clear your input',
-        'Multiple line inputs are allowed',
+        'keep it to one line',
         'Good luck!!',
         '(hit space to continue)'  
     ]
