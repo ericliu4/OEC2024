@@ -1,5 +1,5 @@
 import pygame
-from easyocr import Reader
+#from easyocr import Reader
 
 from misc.generation import run_generation
 from misc.similarities import similarity_words
@@ -20,7 +20,7 @@ global prev_mouse_state
 prev_mouse_state = 0
 
 global reader
-reader = Reader(['en'])
+#reader = Reader(['en'])
 
 global score_screen
 score_screen = False
