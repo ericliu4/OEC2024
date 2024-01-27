@@ -24,10 +24,15 @@ class GameData:
     def get_state(self):
         return self.state
 
+    def draw_fps(self):
+        fps = self.clock.get_fps()
+        fps_text = self.fonts['pt24'].render(f'FPS: {fps:.2f}', True, 'black')
+        fps_text_rect = fps_text.get_rect(topright=(self.width - 10, 10))
+        self.screen.blit(fps_text, fps_text_rect)   
 
     def update(self):
 
+        self.draw_fps()
         pygame.display.flip()
-
         self.dt = self.clock.tick(60) / 1000
     
