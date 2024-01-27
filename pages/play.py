@@ -202,7 +202,6 @@ def get_mouse_state(pos):
     else:
         return 0
     
-
 def get_words_in_box(game):
         # Get pixel array from white drawing box
         w = 600
