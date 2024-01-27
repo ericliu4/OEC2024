@@ -1,4 +1,4 @@
-from scipy.spatial import KDTree
+
 import numpy as np
 
 def similarity_words(s1, s2):

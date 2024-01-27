@@ -13,8 +13,8 @@ def word_generate(difficulty):
     if difficulty == 2: #generate word
         count = 1
 
-    elif difficulty == 3: #generate sentence
-        count = 3
+    elif difficulty >= 3: #generate sentence
+        count = difficulty
 
 
     curr = 0
@@ -24,7 +24,7 @@ def word_generate(difficulty):
     while curr != count:
         word = random.choice(word_list)
         word = word.lower()
-        if word not in returnWord:
+        if word not in returnWord and len(word) <= difficulty+2:
             returnWord += " " + word
             curr += 1
     print(returnWord)

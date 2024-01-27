@@ -1,5 +1,5 @@
 import pygame
-
+from collections import Counter
 class GameData:
 
     def __init__(self):
@@ -34,12 +34,18 @@ class GameData:
         }
         
         #global variables
+        #difficulty level up to 5
         self.score = 0
         self.state = 2
         self.difficulty = 1
         self.weaknesses = []
         self.strengths = []
         self.goal_word = 'whale'
+
+
+        #Track types of mistakes the user is more likely to make
+        #Adjust word and difficulty depending on mistakes
+        self.mistakes = Counter()
 
 
     def get_state(self):
