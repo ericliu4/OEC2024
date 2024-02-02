@@ -38,3 +38,6 @@ https://github.com/JaidedAI/EasyOCR
 
 Credit to Google Images for providing access to free-to-use image files
 https://images.google.com
+
+Credit to Education First (EF) for providing access to a word bank
+https://www.ef.com/ca/english-resources/english-vocabulary/top-1000-words/
